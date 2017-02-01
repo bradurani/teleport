@@ -1,8 +1,22 @@
+GIT
+  remote: git://github.com/bradurani/telekinesis.git
+  revision: 7a949b4c04b91e3a71ff89698d8d07d1215b897f
+  specs:
+    telekinesis (3.2.0-java)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    coderay (1.1.1)
     concurrent-ruby (1.0.4-java)
     connection_pool (2.2.1)
+    ffi (1.9.17-java)
+    method_source (0.8.2)
+    pry (0.10.4-java)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      spoon (~> 0.0)
     rack (2.0.1)
     rack-protection (1.5.3)
       rack
@@ -12,14 +26,17 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.2, >= 3.2.1)
-    telekinesis (3.2.0-java)
+    slop (3.6.0)
+    spoon (0.0.6)
+      ffi
 
 PLATFORMS
   java
 
 DEPENDENCIES
+  pry
   sidekiq (~> 4.2.9)
-  telekinesis (~> 3.2.0)
+  telekinesis!
 
 RUBY VERSION
    ruby 2.3.1p0 (jruby 9.1.7.0)

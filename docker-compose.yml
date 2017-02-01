@@ -1,0 +1,9 @@
+version: '2'
+services:
+  pry:
+    build: .
+    container_name: teleport
+    command: pry
+    env_file: .env
+    stdin_open: true
+    tty: true
