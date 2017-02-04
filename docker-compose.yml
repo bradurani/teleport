@@ -3,7 +3,14 @@ services:
   pry:
     build: .
     container_name: teleport
-    command: pry
+    command: pry -r './lib/workers/analytics_worker.rb'
+    env_file: .env
+    stdin_open: true
+    tty: true
+  bash:
+    build: .
+    container_name: teleport
+    command: bash
     env_file: .env
     stdin_open: true
     tty: true

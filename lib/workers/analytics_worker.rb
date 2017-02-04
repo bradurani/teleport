@@ -6,7 +6,6 @@ class AnalyticsWorker
   sidekiq_options queue: :nodb, retry: true, backtrace: true
 
   def perform(*args)
-    require 'telekinesis'
 
     producer = Telekinesis::Producer::SyncProducer.create(
       stream: 'teleport',
