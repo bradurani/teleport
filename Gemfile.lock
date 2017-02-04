@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/bradurani/telekinesis.git
-  revision: 7a949b4c04b91e3a71ff89698d8d07d1215b897f
+  remote: https://github.com/bradurani/telekinesis.git
+  revision: 390e100a4bd64c2b4a26eaac736b5fcd8c429e34
   specs:
     telekinesis (3.2.0-java)
 

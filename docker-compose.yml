@@ -13,4 +13,12 @@ services:
     command: bash
     env_file: .env
     stdin_open: true
-    tty: true
+  bundle:
+    build:
+      dockerfile: Dockerfile.bundle
+      context: .
+    command: bundle install --system
+    container_name: telekinesis-bundle
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
