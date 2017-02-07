@@ -11,12 +11,14 @@ class AnalyticsWorker
       stream: 'teleport',
       # failure_handler: MyFailureHandler.new,
       # send_every_ms: 1500,
+      endpoint: ENV['AWS_ENDPOINT'],
       credentials: {
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }
     )
-    producer.put(1, args.join(','))
+    result = producer.put(1, "4,5,brad")
+    puts result
   end
 
 end

@@ -22,3 +22,9 @@ services:
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
+  perform:
+    build: .
+    container_name: teleport
+    command: ruby -r './lib/workers/analytics_worker.rb' -r 'telekinesis' -e 'AnalyticsWorker.new.execute'
+    env_file: .env
+
