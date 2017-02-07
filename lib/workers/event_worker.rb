@@ -1,11 +1,11 @@
 require 'sidekiq'
 require 'telekinesis'
 
-class AnalyticsWorker
+class EventWorker
   include Sidekiq::Worker
   sidekiq_options queue: :nodb, retry: true, backtrace: true
 
-  def perform(*args)
+  def perform(event_attributes)
 
     producer = Telekinesis::Producer::SyncProducer.create(
       stream: 'teleport',
@@ -17,7 +17,7 @@ class AnalyticsWorker
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }
     )
-    result = producer.put(1, "4,5,brad")
+    result = producer.put(1, event_attributes)
     puts result
   end
 

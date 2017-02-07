@@ -21,6 +21,8 @@ GEM
     rack-protection (1.5.3)
       rack
     redis (3.3.3)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     sidekiq (4.2.9)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -35,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   pry
+  redis-namespace
   sidekiq (~> 4.2.9)
   telekinesis!
 

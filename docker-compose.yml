@@ -13,12 +13,14 @@ services:
     command: bash
     env_file: .env
     stdin_open: true
+    tty: true
   bundle:
+    # used this if you add or upgrade gems to generate a new Gemfile.lock
     build:
       dockerfile: Dockerfile.bundle
       context: .
     command: bundle install --system
-    container_name: telekinesis-bundle
+    container_name: teleport-bundle
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
@@ -26,5 +28,9 @@ services:
     build: .
     container_name: teleport
     command: ruby -r './lib/workers/analytics_worker.rb' -r 'telekinesis' -e 'AnalyticsWorker.new.execute'
+    env_file: .env
+  sidekiq:
+    build: .
+    container_name: teleport
     env_file: .env
 
